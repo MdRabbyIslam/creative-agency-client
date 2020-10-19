@@ -1,0 +1,9 @@
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  outline: none;
+  border: none;
+}

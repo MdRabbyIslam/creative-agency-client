@@ -1,0 +1,37 @@
+.top-container {
+  max-height: 600px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  /* justify-items: center; */
+  align-items: center;
+  flex-direction: column;
+}
+.container-1 {
+  width: 80%;
+  min-height: 320px;
+  margin: 0 auto;
+}
+
+.slick-slide {
+  height: 320px;
+  /* border: 4px solid #f25634; */
+  box-sizing: border-box;
+  padding: 20px;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: white;
+  font-size: 40px;
+}
+
+.slick-slide div {
+  max-height: 300px;
+}
+
+.slick-slide div img {
+  height: 100%;
+  width: 100%;
+  /* border: 2.5px solid #f25634; */
+  box-sizing: border-box;
+}

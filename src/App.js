@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/Home/Home/Home";
+import RabbyTask from "./RabbyTask";
+import Login from "./components/Login/Login";
+import PrivateRoute from "./components/Login/PrivateRoute";
+import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+import { createContext } from "react";
+import { useState } from "react";
+export const UserContext = createContext();
 function App() {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    isLogged: false,
+    email: "",
+    adminOrUser: "",
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={[userInfo, setUserInfo]}>
+      <Router>
+        <Switch>
+          <Route path="/assignment11/task" component={RabbyTask} />
+          <Route path="/login" component={Login} />
+          <PrivateRoute path="/dashboard">
+            <Dashboard />
+          </PrivateRoute>
+          {/* <Route path="/dashboard" component={Dashboard} /> */}
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </Router>
+    </UserContext.Provider>
   );
 }
 

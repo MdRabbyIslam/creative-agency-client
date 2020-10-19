@@ -1,0 +1,18 @@
+.btn-sidebar {
+  border: none;
+  outline: none;
+  color: black;
+  background-color: white;
+  text-align: left;
+}
+.btn-sidebar:active,
+.btn-sidebar:focus,
+.btn-sidebar:hover {
+  border: none;
+  outline: none;
+  background-color: white;
+  color: green;
+}
+.btn-sidebar span {
+  padding-left: 15px;
+}

@@ -1,0 +1,28 @@
+/* .add-service {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.add-service div {
+  width: 45%;
+}
+.add-service div input {
+  margin: 1% 0;
+  padding: 2% 1%;
+  font-size: 16px;
+  width: 100%;
+} */
+
+.add-service-form div {
+  width: 60%;
+  padding: 10px;
+}
+.add-service-form div input,
+.add-service-form div textarea {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  outline: none;
+}

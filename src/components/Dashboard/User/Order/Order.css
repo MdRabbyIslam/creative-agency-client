@@ -1,0 +1,21 @@
+.order-form {
+  padding: 2%;
+}
+
+.project-div {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2%;
+}
+.project-div input {
+  width: 45%;
+  padding: 10px 10px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+}
+.project-div input[name="price"] {
+  margin-right: 10px;
+}
