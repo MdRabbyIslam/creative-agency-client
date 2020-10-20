@@ -1,4 +1,4 @@
-import React, { isValidElement } from "react";
+import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./Review.css";
@@ -49,19 +49,19 @@ const Review = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     const { userName, companyName, description, file, name } = formInfo;
-    // console.log(userName, companyName, description, file, name);
+    console.log(userName, companyName, description, file, name);
     if (userName && companyName && description) {
       alert("file submitted");
       //storing project photo to server
       const formData = new FormData();
       formData.append("file", file);
-      fetch("http://localhost:5000/uploadImg", {
+      fetch("https://damp-ridge-35487.herokuapp.com/uploadImg", {
         method: "POST",
         body: formData,
       });
 
       const finalResult = { userName, companyName, description, file, name };
-      fetch("http://localhost:5000/addReview", {
+      fetch("https://damp-ridge-35487.herokuapp.com/addReview", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -6,31 +6,26 @@ import logo from "../../images/logos/logo.png";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import loginLogo from "../../images/icons/google-login-logg.png";
 import firebaseConfig from "./firbase.config";
-// import { useContext } from "react";
-// import { UserContext } from "../../App";
+
 import { useState, useEffect } from "react";
 
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
-  // const [userInfo] = useContext(UserContext);
   const [adminEmail, setAdminEmail] = useState([]);
-  console.log(adminEmail);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admins")
+    fetch("https://damp-ridge-35487.herokuapp.com/admins")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setAdminEmail(data);
       });
   }, []);
 
   let history = useHistory();
   let location = useLocation();
-  let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: "/dashboard" } };
 
-  // console.log(userInfo);
   const handleLogIn = (e) => {
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();

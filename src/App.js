@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home/Home";
-import RabbyTask from "./RabbyTask";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/Login/PrivateRoute";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
@@ -22,7 +21,6 @@ function App() {
     <UserContext.Provider value={[userInfo, setUserInfo]}>
       <Router>
         <Switch>
-          <Route path="/assignment11/task" component={RabbyTask} />
           <Route path="/login" component={Login} />
           <PrivateRoute path="/dashboard">
             <Dashboard />

@@ -10,7 +10,6 @@ import "./Order.css";
 const Order = () => {
   const history = useHistory();
   const [userInfo] = useContext(UserContext);
-  const [filterdData, setFilteredData] = useState();
   let [orderInfo, setOrderInfo] = useState({
     companyName: "",
     email: "",
@@ -24,32 +23,15 @@ const Order = () => {
     status: "pending",
   });
 
-  useEffect(() => {
-    fetch("http://localhost:5000/gettingAddService/")
-      .then((res) => res.json())
-      .then((data) => {
-        rabby(data);
-      });
-  }, []);
-
-  const rabby = (data) => {
-    console.log(data);
-    const filterd = data.filter(
-      (single) => single.title === userInfo.orderCatagory
-    );
-    setFilteredData(filterd[0]);
-  };
-  // console.log(filterdData);
-
   const validation = (target) => {
     const newInfo = { ...orderInfo };
 
-    if (target.name === "companyName") {
+    if (target.name === "companyName" || target.name === "orderCatagory") {
       if (target.value.length > 0) {
         newInfo[target.name] = target.value;
       }
-      if (target.value.length < 0) {
-        newInfo.companyNameError = "please fill ";
+      if (target.value.length < 1) {
+        newInfo[`${target.name}Error`] = "please fill ";
       }
     }
     if (target.name === "price") {
@@ -90,29 +72,36 @@ const Order = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    const { status, name, email, price, file, companyName } = orderInfo;
+    const {
+      status,
+      name,
+      email,
+      price,
+      file,
+      companyName,
+      orderCatagory,
+    } = orderInfo;
     if (email && price) {
       //storing project photo to server
       const formData = new FormData();
       formData.append("file", file);
-      fetch("http://localhost:5000/uploadImg", {
+      fetch("https://damp-ridge-35487.herokuapp.com/uploadImg", {
         method: "POST",
         body: formData,
       });
       //storing data in database
-      const { title, description } = filterdData;
-      console.log(name, title, description, status);
+      // const { description } = filterdData;
+      console.log(name, orderCatagory, status);
       const finalResult = {
         companyName,
         price,
         email,
-        title,
+        orderCatagory,
         name,
-        description,
         status,
       };
       console.log(finalResult);
-      fetch("http://localhost:5000/orderInfo", {
+      fetch("https://damp-ridge-35487.herokuapp.com/orderInfo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -156,7 +145,7 @@ const Order = () => {
             className="input-brand"
             onChange={handleOnChange}
             type="text"
-            value={orderInfo.orderCatagory}
+            defaultValue={orderInfo.orderCatagory}
             name="OrderCatagory"
             placeholder="Grapics Design"
           />

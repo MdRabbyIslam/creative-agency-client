@@ -4,7 +4,7 @@ import ServiceCard from "../ServiceCard/ServiceCard";
 const Serivices = () => {
   const [services, setServices] = useState([]);
 
-  fetch("http://localhost:5000/gettingAddService")
+  fetch("https://damp-ridge-35487.herokuapp.com/gettingAddService")
     .then((res) => res.json())
     .then((data) => {
       setServices(data);

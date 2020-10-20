@@ -5,12 +5,11 @@ const AdminService = ({ service }) => {
   const [currentStatus, setCurrentStatus] = useState(service.status);
   const handleStatus = (e, id) => {
     const status = e.target.value;
-    console.log(e.target.value);
-    console.log(id);
+
     setCurrentStatus(status);
     const product = { id, status };
 
-    fetch(`http://localhost:5000/updateStatus/${id}`, {
+    fetch(`https://damp-ridge-35487.herokuapp.com/updateStatus/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(product),

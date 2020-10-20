@@ -6,7 +6,6 @@ import slack from "../../../../images/logos/slack.png";
 import uber from "../../../../images/logos/uber.png";
 
 const Organization = () => {
-  // const imgArray =
   const imgStyle = {
     height: "10%",
     width: "10%",

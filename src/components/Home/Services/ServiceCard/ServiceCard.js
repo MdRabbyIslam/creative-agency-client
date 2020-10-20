@@ -4,7 +4,7 @@ import { UserContext } from "../../../../App";
 
 const ServiceCard = ({ service }) => {
   const [userInfo, setUserInfo] = useContext(UserContext);
-  // console.log(userInfo);
+
   const history = useHistory();
 
   const handleClick = (e) => {
@@ -28,42 +28,11 @@ const ServiceCard = ({ service }) => {
       <div style={{ position: "relative" }} className="p-5 bg-white " id="div">
         <img
           style={{ height: "70px" }}
-          src={`http://localhost:5000/${service.name}`}
+          src={`https://damp-ridge-35487.herokuapp.com/${service.name}`}
           alt=""
         />
         <h6 className="my-4 font-weight-bold text-info">{service.title}</h6>
         <p className="opacity-1">{service.description}</p>
-
-        {service.status === "pending" ? (
-          <p
-            style={{ top: "5px", right: "5px" }}
-            className="position-absolute bg-danger text-white p-2 rounded"
-          >
-            {service.status}
-          </p>
-        ) : (
-          [
-            service.status === "ongoing" ? (
-              <p
-                style={{ top: "5px", right: "5px" }}
-                className="position-absolute bg-primary text-white p-2 rounded"
-              >
-                {service.status}
-              </p>
-            ) : (
-              [
-                service.status === "done" && (
-                  <p
-                    style={{ top: "5px", right: "5px" }}
-                    className="position-absolute bg-success text-white p-2 rounded"
-                  >
-                    {service.status}
-                  </p>
-                ),
-              ]
-            ),
-          ]
-        )}
       </div>
     </div>
   );

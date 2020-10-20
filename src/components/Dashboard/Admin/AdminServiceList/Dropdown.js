@@ -1,8 +1,6 @@
 import React from "react";
 
 const Dropdown = ({ handleStatus, currentStatus, id }) => {
-  console.log(id, currentStatus);
-
   return (
     <div>
       <select

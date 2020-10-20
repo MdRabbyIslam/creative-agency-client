@@ -8,7 +8,6 @@ const MakeAdmin = () => {
     email: "",
     error: "",
   });
-  console.log(validateInfo.email, validateInfo.error);
 
   const validation = (testResult, target) => {
     const newInfo = { ...validateInfo };
@@ -37,7 +36,7 @@ const MakeAdmin = () => {
     if (validateInfo.email) {
       const { email } = validateInfo;
       const finalResult = { email };
-      fetch("http://localhost:5000/admins", {
+      fetch("https://damp-ridge-35487.herokuapp.com/admins", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,6 +45,10 @@ const MakeAdmin = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          alert("adimin added");
+          const refreshEmail = { ...validateInfo };
+          refreshEmail.email = "";
+          setValidateInfo(refreshEmail);
           if (data) history.push("/dashboard");
         });
     }

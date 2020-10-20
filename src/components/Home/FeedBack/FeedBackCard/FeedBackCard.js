@@ -7,7 +7,7 @@ const FeedBackCard = ({ feedback }) => {
         <div className="d-flex ">
           <img
             style={{ height: "50px" }}
-            src={`http://localhost:5000/${feedback.name}`}
+            src={`https://damp-ridge-35487.herokuapp.com/${feedback.name}`}
             alt=""
           />
           <div className="font-weight-bold pl-3">

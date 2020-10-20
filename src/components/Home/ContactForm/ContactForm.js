@@ -1,14 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./ContactForm.css";
 
 const ContactForm = () => {
+  const history = useHistory();
+  const [formInfo, setFormInfo] = useState({
+    name: "",
+    email: "",
+    message: "",
+    emailError: "",
+  });
   const handleOnChange = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const newInfo = { ...formInfo };
+    if (e.target.name !== "email") {
+      newInfo[e.target.name] = e.target.value;
+    }
+    if (e.target.name === "email") {
+      const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const result = regexEmail.test(e.target.value);
+      if (result) {
+        newInfo.email = e.target.value;
+        newInfo.emailError = "";
+      }
+      if (!result) {
+        newInfo.emailError = "plase isert correct email";
+        newInfo.email = "";
+      }
+    }
+    setFormInfo(newInfo);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("form submited");
+    const { name, email, message } = formInfo;
+    if (name && email && message) {
+      const finalResult = { name, email, message };
+      fetch("https://damp-ridge-35487.herokuapp.com/addMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(finalResult),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data) {
+            alert("form submit successfully");
+            history.push("/");
+          }
+        });
+    }
   };
   return (
     <div
@@ -28,15 +70,16 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} className="contact-form" action="">
           <input
             name="email"
-            value=""
             onChange={handleOnChange}
             type="text"
             placeholder="Your email address"
           />
           <br />
+          {formInfo.emailError && (
+            <p style={{ color: "red" }}>Please give an valid email</p>
+          )}
           <input
             name="name"
-            value=""
             onChange={handleOnChange}
             type="text"
             placeholder="Your name/company name"

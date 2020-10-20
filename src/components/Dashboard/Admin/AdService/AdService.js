@@ -23,14 +23,14 @@ const AdService = () => {
     const formData = new FormData();
     formData.append("file", serviceInfo.file);
     //sending information to server
-    fetch("http://localhost:5000/addServiceImg", {
+    fetch("https://damp-ridge-35487.herokuapp.com/addServiceImg", {
       method: "POST",
       body: formData,
     });
 
     const { name, title, description } = serviceInfo;
     const finalResult = { name, title, description };
-    fetch("http://localhost:5000/addServiceInfo", {
+    fetch("https://damp-ridge-35487.herokuapp.com/addServiceInfo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,6 @@ const AdService = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data) history.push("/");
       });
   };

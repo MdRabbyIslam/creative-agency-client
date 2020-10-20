@@ -7,7 +7,6 @@ const Sidebar = ({ handleBtnClick, adminOrUser }) => {
   const newButtonList = buttonList.filter(
     (button) => button.name === adminOrUser
   );
-  console.log(adminOrUser);
   return (
     <div className="d-flex flex-column">
       {newButtonList.map((btn) => (

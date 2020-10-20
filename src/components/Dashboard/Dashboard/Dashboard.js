@@ -12,7 +12,6 @@ import MakeAdmin from "../Admin/MakeAdmin/MakeAdmin";
 
 const Dashboard = () => {
   const adminOrUser = sessionStorage.getItem("adminOrUser");
-  console.log(adminOrUser);
   const name = sessionStorage.getItem("name");
   const photo = sessionStorage.getItem("photo");
   console.log(photo);

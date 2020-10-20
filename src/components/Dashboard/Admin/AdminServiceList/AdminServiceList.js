@@ -5,14 +5,13 @@ import "./AdminServiceList.css";
 const AdminServiceList = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/orderInfo")
+    fetch("https://damp-ridge-35487.herokuapp.com/orderInfo")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
       });
   }, []);
 
-  console.log(services);
   return (
     <div className="p-3 bg-white">
       <div className="heading ">

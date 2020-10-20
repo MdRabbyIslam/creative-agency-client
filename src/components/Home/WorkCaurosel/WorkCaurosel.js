@@ -1,12 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
 import "./WorkCaurosel.css";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-// import SliderWrapper from "./_SlickSliderStyle";
 import caurosel1 from "../../../images/carousel-1.png";
 import caurosel2 from "../../../images/carousel-2.png";
-// import caurosel3 from "../../../images/carousel-3.png";
 import caurosel4 from "../../../images/carousel-4.png";
 import caurosel5 from "../../../images/carousel-5.png";
 

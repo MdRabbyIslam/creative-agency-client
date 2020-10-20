@@ -1,7 +1,6 @@
 import React from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import FeedBack from "../FeedBack/FeedBack/FeedBack";
-// import FeedBack from "../FeedBack/FeedBack/FeedBack";
 import Header from "../Header/Header/Header";
 import Organization from "../Header/Organization/Organization";
 import Serivices from "../Services/Services/Serivices";
