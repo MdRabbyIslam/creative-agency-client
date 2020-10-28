@@ -12,3 +12,5 @@ Features:
 [live project link](https://creative-agency-368ac.web.app//)
 
 [server side github repo](https://github.com/Rabby-sopno/creative-agency-server)
+
+[linkedIn](https://www.linkedin.com/in/rabby-islam-4579a4164/)
