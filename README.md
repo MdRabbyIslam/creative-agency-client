@@ -1,4 +1,4 @@
-#Creative Agency a mern-stack project
+# Creative Agency is a mern-stack project
 
 Technology: React.js, Bootstrap, Express, MongoDB, Node.js, firebase, React-router, etc.
 
@@ -8,3 +8,7 @@ Features:
 *	Here has the user panel and admin panel
 *	Users can take any services and review their completed project
 *	Admins can add services event and controlling all projects
+
+[live project link](https://creative-agency-368ac.web.app//)
+
+[server side github repo](https://github.com/Rabby-sopno/creative-agency-server)
